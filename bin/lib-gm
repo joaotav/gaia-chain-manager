@@ -758,7 +758,7 @@ start() {
     if [ "$VALIDATION" = "ERR" ]; then
       warn "validate-genesis could not complete for ${1}"
     fi
-    nohup "$GAIAD_BINARY" start --home "$HOME_DIR" > "$GAIAD_LOG" 2>&1 &
+    nohup "$GAIAD_BINARY" start --home "$HOME_DIR" --minimum-gas-prices 0.0000001stake > "$GAIAD_LOG" 2>&1 &
     GAIAD_PID=$!
     echo "$GAIAD_PID" > "$HOME_DIR/pid"
     info "$i started, PID: $GAIAD_PID, LOG: $GAIAD_LOG"
